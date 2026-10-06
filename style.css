@@ -197,6 +197,31 @@ body {
     transform: scale(1.1);
 }
 
+.link-item i.right-icon {
+    left: auto;
+    right: 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0.6;
+}
+
+.email-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.email-address {
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+.copy-email-btn {
+    cursor: pointer;
+}
+
 /* Social Brand Colors */
 .email-link {
     background: rgba(234, 67, 53, 0.15);

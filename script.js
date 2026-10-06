@@ -43,4 +43,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 600);
         });
     });
+
+    // Email copy to clipboard
+    const copyEmailBtn = document.querySelector('.copy-email-btn');
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', function() {
+            const email = this.getAttribute('data-email');
+            navigator.clipboard.writeText(email).then(() => {
+                const titleSpan = this.querySelector('.email-title');
+                const originalText = titleSpan.innerText;
+                titleSpan.innerText = 'Copied!';
+                
+                // Change icon to check
+                const copyIcon = this.querySelector('.right-icon');
+                copyIcon.classList.remove('fa-copy', 'fa-regular');
+                copyIcon.classList.add('fa-check', 'fa-solid');
+                
+                setTimeout(() => {
+                    titleSpan.innerText = originalText;
+                    copyIcon.classList.remove('fa-check', 'fa-solid');
+                    copyIcon.classList.add('fa-copy', 'fa-regular');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    }
 });
